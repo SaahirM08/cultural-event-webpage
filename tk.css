@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundAnimation 10s ease-in-out infinite;
+    background-image: url(pop.webp);
+    background-color: #000;
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+    0% { filter: brightness(0.9); }
+    50% { filter: brightness(1); }
+    100% { filter: brightness(0.9); }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    animation: floatLogo 3s ease-in-out infinite;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+}
+pre{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+    color: #f0f0f0;
+    text-decoration: solid;
+}
+
+/* Logo floating animation */
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff5a5f;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff5a5f;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.sign-in {
+    padding: 10px 20px;
+    background-color: #ff5a5f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.sign-in:hover {
+    background-color: #ff4349;
+    transform: scale(1.1);
+}
+
+.content {
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInContent 2s ease-out forwards 1s;
+}
+
+/* Text fade-in animation */
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content h1 {
+    font-size: 60px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px #000;
+    animation: bounceText 2s ease-in-out infinite alternate;
+}
+
+/* Bounce animation for heading */
+@keyframes bounceText {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.content p {
+    font-size: 24px;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px #000;
+    opacity: 0;
+    animation: fadeInText 2.5s ease-out forwards 2s;
+}
+
+/* Fading effect for the description */
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer section for extra interactivity */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+/* Previous CSS code remains unchanged */
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll-to-Top Button */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #ff4349;
+}
+
+/* Grid Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Poster Style */
+.poster {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.poster h3 {
+    color: #fff;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.poster img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Marquee container styling */
+.marquee-container {
+    width: 100%; /* Full width */
+    overflow: hidden; /* Hide the overflow to create the sliding effect */
+    white-space: nowrap; /* Prevents the boxes from wrapping to a new line */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Boxes wrapper */
+.marquee-content {
+    display: inline-flex; /* Flex to keep the boxes in line */
+    animation: moveBoxes 14s linear infinite; /* Animation applied to the entire row of boxes */
+}
+
+/* Individual box styling */
+.marquee-box {
+    width: 150px;
+    height: 150px;
+    margin: 0 10px;
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Box image styling */
+.marquee-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the box */
+}
+
+/* Animation */
+@keyframes moveBoxes {
+    0% {
+        transform: translateX(100%); /* Start from outside the screen (right) */
+    }
+    100% {
+        transform: translateX(-100%); /* Move all the way to the left */
+    }
+}
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Map Box */
+.map-box {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Address Box */
+.address-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.address-box h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.address-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .map-box, .address-box {
+        width: 100%;
+    }
+}
+form{
+    color: #f5f5f5;
+}
